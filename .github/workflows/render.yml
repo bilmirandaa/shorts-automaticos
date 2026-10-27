@@ -1,0 +1,38 @@
+
+name: Renderizar Shorts
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: shorts-cloud-starter
+
+    steps:
+      - name: Baixar arquivos do projeto
+        uses: actions/checkout@v4
+
+      - name: Preparar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Renderizar video
+        run: npx remotion render src/index.ts Shorts out/short.mp4 --codec h264
+
+      - name: Disponibilizar MP4
+        uses: actions/upload-artifact@v4
+        with:
+          name: shorts-mp4
+          path: shorts-cloud-starter/out/short.mp4
+          if-no-files-found: error
