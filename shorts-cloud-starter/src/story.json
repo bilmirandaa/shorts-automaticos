@@ -1,0 +1,9 @@
+{
+  "title": "Como funciona uma investigação?",
+  "scenes": [
+    {"caption": "Tudo começa com uma informação que precisa ser verificada.", "visual": "document", "background": "#0a1930"},
+    {"caption": "Investigadores reúnem documentos e analisam os fatos.", "visual": "search", "background": "#14213d"},
+    {"caption": "As conclusões dependem das evidências, não de boatos.", "visual": "scale", "background": "#132a37"},
+    {"caption": "Investigar não significa condenar.", "visual": "building", "background": "#0b1830"}
+  ]
+}
